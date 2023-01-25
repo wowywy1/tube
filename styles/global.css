@@ -1,0 +1,210 @@
+/* Layout */
+.df {
+  display: flex;
+}
+.aic {
+  align-items: center;
+}
+.jcc {
+  justify-content: center;
+}
+.jcsb {
+  justify-content: space-between;
+}
+.jcfe {
+  justify-content: flex-end;
+}
+.fdc {
+  flex-direction: column;
+}
+.f1 {
+  flex: 1;
+}
+.h100 {
+  height: 100%;
+}
+.w100 {
+  width: 100%;
+}
+.pr {
+  position: relative;
+}
+.pa {
+  position: absolute;
+}
+
+/* Word */
+.wbbw {
+  word-break: break-word;
+}
+.paragraph-clean {
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+/* Border */
+.br4 {
+  border-radius: 4px;
+}
+.fw600 {
+  font-weight: 600 !important;
+}
+.fw400 {
+  font-weight: 400 !important;
+}
+/* Event */
+.cp {
+  cursor: pointer;
+}
+
+/* for page break when printing*/
+@media all {
+  .page-break {
+    display: none;
+  }
+}
+
+@media print {
+  html,
+  body {
+    height: initial !important;
+    overflow: initial !important;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+@media print {
+  .page-break {
+    display: block;
+    page-break-before: auto;
+  }
+}
+
+@page {
+  size: auto;
+  margin: 20mm;
+}
+
+.rhap_container {
+  background-color: #4e525f !important;
+  padding: 16px !important;
+  border-radius: 8px;
+}
+.rhap_current-time {
+  color: white !important;
+}
+.rhap_progress-filled {
+  background: white !important;
+}
+.rhap_progress-indicator {
+  background: #f44336 !important;
+}
+.rhap_time {
+  color: white !important;
+}
+.rhap_button-clear {
+  color: white !important;
+  text-align: center !important;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex !important;
+}
+.rhap_volume-indicator {
+  color: white !important;
+}
+
+@keyframes img-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.img-ani {
+  opacity: 1;
+  animation-name: img-animation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+.list-item-hover:hover {
+  background-color: #f5f5f5;
+}
+
+.react-pdf__Page__canvas {
+  margin: auto;
+  border: 1px solid #d8dcf0;
+  border-radius: 4px;
+}
+
+.react-pdf__Page__annotations {
+  display: none;
+}
+
+/* .react-pdf__Page__canvas:not(:last-child) {
+  margin-bottom: 8px;
+} */
+
+.infinite-scroll-component__outerdiv {
+  width: 100%;
+}
+.infinite-scroll-component {
+  overflow: auto;
+}
+
+.pdfobject-container {
+  height: 100%;
+}
+
+.scrollbar-element > .ps__rail-x {
+  z-index: 300;
+}
+.scrollbar-element > .ps__rail-y {
+  z-index: 300;
+}
+
+.hide-scrollbar {
+  /* This is the magic bit for Firefox */
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  /* This is the magic bit for WebKit */
+  display: none;
+}
+
+.width1000 {
+  width: 1000px;
+}
+
+a {
+  text-transform: inherit;
+  text-decoration: none;
+  color: unset;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sb,
+.semi-bold {
+  font-weight: 600 !important;
+}
+
+.bold {
+  font-weight: 700 !important;
+}
