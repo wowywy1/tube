@@ -9,7 +9,7 @@ import BRAND_DATA from "@/src/constants/brand";
 import { theme } from "@/src/utils/theme";
 import { AppProps } from "next/app";
 import Script from "next/script";
-import MainLayout from "@/src/commons/layouts/MainLayout";
+import MainLayout from "@/src/layouts/MainLayout";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (

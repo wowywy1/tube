@@ -1,4 +1,4 @@
-import { darkScrollbar } from "@mui/material";
+import { darkScrollbar, responsiveFontSizes } from "@mui/material";
 import { pink } from "@mui/material/colors";
 import { createTheme, ThemeOptions } from "@mui/material/styles";
 
@@ -9,6 +9,9 @@ const _commonThemeObject: ThemeOptions = {
   },
   typography: {
     fontFamily: '"Fira Sans", sans-serif',
+    button: {
+      textTransform: "none",
+    },
   },
   components: {
     MuiCssBaseline: {
