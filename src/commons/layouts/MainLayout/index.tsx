@@ -1,6 +1,6 @@
 import BRAND_DATA from "@/src/constants/brand";
 import { Search, HomeRounded } from "@mui/icons-material";
-import { AppBar, Button, Typography } from "@mui/material";
+import { AppBar, Box, Button, colors, Typography } from "@mui/material";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 import FlexBox from "../../components/FlexBox";
@@ -45,7 +45,15 @@ export default function MainLayout({ children }: { children: ReactNode }) {
           ))}
         </FlexBox>
       </AppBar>
-      <main>{children}</main>
+      <Box component="main" sx={{ padding: 2 }}>
+        {children}
+      </Box>
+      <Box component="footer">
+        <Typography
+          sx={{ padding: 2, textAlign: "center", color: colors.grey.A400 }}
+          variant="subtitle1"
+        >{`${BRAND_DATA.DOMAIN} - ${BRAND_DATA.SLOGAN} - 2023`}</Typography>
+      </Box>
     </>
   );
 }
