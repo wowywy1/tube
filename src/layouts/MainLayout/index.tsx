@@ -5,9 +5,14 @@ import BRAND_DATA from "@/src/constants/brand";
 import { Search, HomeRounded } from "@mui/icons-material";
 import { AppBar, Box, colors, Typography } from "@mui/material";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { ReactNode } from "react";
 
 export default function MainLayout({ children }: { children: ReactNode }) {
+  const router = useRouter();
+
+  console.log("router.asPath", router.asPath);
+
   return (
     <>
       <AppBar position="static">
@@ -40,10 +45,13 @@ export default function MainLayout({ children }: { children: ReactNode }) {
               href={item.link}
               style={{ flex: 1 }}
               key={item.link}
+              color={item.link == router.asPath ? "primary" : "inherit"}
             >
               {item.icon}
               {item.title && (
-                <Typography className="sb">{item.title}</Typography>
+                <Typography className="sb" sx={{ fontSize: { md: 20 } }}>
+                  {item.title}
+                </Typography>
               )}
             </ButtonLink>
           ))}

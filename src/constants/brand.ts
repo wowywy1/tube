@@ -1,4 +1,4 @@
-const BRAND_DATA = {
+const BRAND_DATA: any = {
   NAME: "",
   DOMAIN: "",
   SLOGAN: "",
