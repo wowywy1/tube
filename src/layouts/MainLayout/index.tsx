@@ -11,8 +11,6 @@ import React, { ReactNode } from "react";
 export default function MainLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
 
-  console.log("router.asPath", router.asPath);
-
   return (
     <>
       <AppBar position="static">

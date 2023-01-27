@@ -36,4 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 crawl.js
+upvideo.js
 data.json
