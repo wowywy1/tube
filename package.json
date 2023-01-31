@@ -18,7 +18,6 @@
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
-    "@vitalets/google-translate-api": "^9.1.0",
     "axios": "^1.2.4",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
@@ -28,6 +27,7 @@
     "typescript": "4.9.4"
   },
   "devDependencies": {
+    "@vitalets/google-translate-api": "^9.1.0",
     "http-proxy-agent": "^5.0.0",
     "jsdom": "^21.1.0"
   }
