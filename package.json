@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-   "crawl": "node crawl.js"
+    "crawl": "node crawl.js"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -18,6 +18,7 @@
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
+    "@vitalets/google-translate-api": "^9.1.0",
     "axios": "^1.2.4",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
