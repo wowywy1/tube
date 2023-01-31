@@ -15,7 +15,7 @@ export default function SectionLayout({
   url?: string;
 } & BoxProps) {
   return (
-    <Box {...BoxProps} sx={{ mb: 4 }}>
+    <Box {...BoxProps} sx={{ mb: 5 }}>
       <FlexBox
         sx={{ justifyContent: { xs: "space-between", sm: "flex-start" } }}
       >

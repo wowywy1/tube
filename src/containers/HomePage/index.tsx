@@ -1,6 +1,7 @@
 import VideoList from "@/src/components/VideoList";
 import VIDEOS from "@/src/constants/videos";
 import SectionLayout from "@/src/layouts/SectionLayout";
+import { Container } from "@mui/system";
 import React, { useMemo } from "react";
 
 export default function HomePage() {
@@ -17,8 +18,8 @@ export default function HomePage() {
   }, []);
 
   return (
-    <>
-      <SectionLayout title="Phổ biến" url="/pho-bien">
+    <Container maxWidth="xl">
+      <SectionLayout title="Phổ biến" url="/pho-bien" sx={{ mt: 2 }}>
         <VideoList videos={videos.phoBien} />
       </SectionLayout>
       <SectionLayout title="Mới nhất" url="/moi-nhat">
@@ -27,6 +28,6 @@ export default function HomePage() {
       <SectionLayout title="Hay nhất" url="/hay-nhat">
         <VideoList videos={videos.hayNhat} />
       </SectionLayout>
-    </>
+    </Container>
   );
 }

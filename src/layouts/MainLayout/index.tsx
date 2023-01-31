@@ -12,10 +12,16 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import React, { ReactNode, useState } from "react";
+import { useRouter } from "next/router";
+import React, { ReactNode, useEffect, useState } from "react";
 
 export default function MainLayout({ children }: { children: ReactNode }) {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    setOpenDrawer(false);
+  }, [router.asPath]);
 
   return (
     <>
