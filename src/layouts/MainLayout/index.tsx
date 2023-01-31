@@ -46,7 +46,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
           >
             <Link href="/">
               <img
-                src="/images/logo.jpg"
+                src="/images/ClipShow.png"
                 alt={BRAND_DATA.SLOGAN}
                 style={{ maxWidth: "100%", maxHeight: "80px" }}
               />
