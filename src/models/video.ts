@@ -9,6 +9,8 @@ interface Video {
   thumb: string;
   filecode?: string;
   views?: number;
+  originalTitle?: string;
+  translated?: boolean;
 }
 
 export default Video;
