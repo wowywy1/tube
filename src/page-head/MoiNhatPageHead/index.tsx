@@ -3,16 +3,16 @@ import { useRouter } from "next/router";
 import { useMemo } from "react";
 import CommonHead from "../CommonHead";
 
-const HayNhatPageHead = () => {
+const MoiNhatPageHead = () => {
   const router = useRouter();
   const data = useMemo(() => {
-    const title = `${BRAND_DATA.NAME} | Video hay nhất | Khoe hàng quay lén${
+    const title = `${BRAND_DATA.NAME} | Video mới nhất | Khoe hàng quay lén${
       router.query.page ? " | Trang " + router.query.page : ""
     }`;
-    const description = `Tổng hợp video clip show hàng, khoe hàng, hóng phốt, làm tình, quay lén, hay nhất, phim sex Việt Nam, Trung Quốc miễn phí, cực hay ${
+    const description = `Tổng hợp video clip show hàng, khoe hàng, hóng phốt, làm tình, quay lén, mới nhất, phim sex Việt Nam, Trung Quốc miễn phí, cập nhật ${
       router.query.page ? "Trang " + router.query.page : ""
     }`;
-    const keywords = `sex, show hàng, khoe hàng, làm tình, quay lén, hóng phốt, hay nhất`;
+    const keywords = `sex, show hàng, khoe hàng, làm tình, quay lén, hóng phốt, mới nhất`;
     return {
       title,
       description,
@@ -24,4 +24,4 @@ const HayNhatPageHead = () => {
   return <CommonHead {...data} />;
 };
 
-export default HayNhatPageHead;
+export default MoiNhatPageHead;

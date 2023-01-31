@@ -1,10 +1,8 @@
 import VideoListPage from "@/src/components/VideoListPage";
 import { VIDEO_PER_PAGE } from "@/src/constants/app";
-import BRAND_DATA from "@/src/constants/brand";
 import VIDEOS from "@/src/constants/videos";
 import HayNhatPageHead from "@/src/page-head/HayNhatPageHead";
 import { Container } from "@mui/material";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 
