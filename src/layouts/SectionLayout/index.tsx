@@ -1,20 +1,21 @@
 import ButtonLink from "@/src/common-ui/ButtonLink";
 import FlexBox from "@/src/common-ui/FlexBox";
 import { ArrowRightRounded } from "@mui/icons-material";
-import { Box, Typography } from "@mui/material";
+import { Box, BoxProps, Typography } from "@mui/material";
 import React, { ReactNode } from "react";
 
 export default function SectionLayout({
   children,
   title,
   url,
+  ...BoxProps
 }: {
   children: ReactNode;
   title: string;
   url?: string;
-}) {
+} & BoxProps) {
   return (
-    <Box>
+    <Box {...BoxProps} sx={{ mb: 4 }}>
       <FlexBox
         sx={{ justifyContent: { xs: "space-between", sm: "flex-start" } }}
       >

@@ -1,15 +1,21 @@
-import ButtonLink from "@/src/common-ui/ButtonLink";
 import FlexBox from "@/src/common-ui/FlexBox";
 import TextField from "@/src/common-ui/TextField";
+import NavLinks from "@/src/components/NavLinks";
 import BRAND_DATA from "@/src/constants/brand";
-import { Search, HomeRounded } from "@mui/icons-material";
-import { AppBar, Box, colors, Typography } from "@mui/material";
+import { Search, List } from "@mui/icons-material";
+import {
+  AppBar,
+  Box,
+  colors,
+  Drawer,
+  IconButton,
+  Typography,
+} from "@mui/material";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 
 export default function MainLayout({ children }: { children: ReactNode }) {
-  const router = useRouter();
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
     <>
@@ -20,61 +26,54 @@ export default function MainLayout({ children }: { children: ReactNode }) {
           alignItems: "center",
           display: { xs: "block", lg: "flex" },
           flexDirection: "row",
+          pb: { xs: 2, md: 0 },
         }}
       >
-        <FlexBox sx={{ flex: 1 }}>
-          <h1>
+        <FlexBox sx={{ flex: 1, flexWrap: "wrap" }}>
+          <Box
+            component="h1"
+            sx={{
+              width: { xs: "100%", sm: "200px" },
+              maxHeight: "80px",
+              textAlign: "center",
+            }}
+          >
             <Link href="/">
               <img
                 src="/images/logo.jpg"
                 alt={BRAND_DATA.SLOGAN}
-                height={"80px"}
+                style={{ maxWidth: "100%", maxHeight: "80px" }}
               />
             </Link>
-          </h1>
+          </Box>
           <TextField
-            sx={{ flex: 1, ml: 2 }}
+            fullWidth
+            sx={{ flex: 1, width: "100%", ml: 2, minWidth: "260px" }}
             icon={<Search />}
             placeholder="Tìm kiếm"
           />
-        </FlexBox>
-        <FlexBox sx={{ flex: 1 }}>
-          <FlexBox
+          <NavLinks
             sx={{
+              display: { xs: "none", sm: "flex" },
               ml: { xs: 0, lg: 2 },
-              display: "flex",
-              flex: 3,
-              width: { xs: "100%", lg: "auto" },
+              minWidth: { xs: "0px", sm: "500px" },
+              flex: 2,
             }}
-            component="nav"
+            type="header"
+          />
+
+          <Box sx={{ display: { xs: "block", sm: "none" }, ml: 1 }}>
+            <IconButton onClick={() => setOpenDrawer(true)}>
+              <List />
+            </IconButton>
+          </Box>
+          <Drawer
+            open={openDrawer}
+            onClose={() => setOpenDrawer(false)}
+            anchor="top"
           >
-            {[
-              { icon: <HomeRounded />, link: "/" },
-              { title: "Mới nhất", link: "/moi-nhat" },
-              { title: "Hay nhất", link: "/hay-nhat" },
-              { title: "Phổ biến", link: "/pho-bien" },
-              { title: "Thể loại", link: "/the-loai" },
-            ].map((item) => (
-              <ButtonLink
-                fullWidth
-                href={item.link}
-                style={{ flex: 1 }}
-                key={item.link}
-                color={item.link == router.asPath ? "primary" : "inherit"}
-              >
-                {item.icon}
-                {item.title && (
-                  <Typography
-                    className="sb"
-                    sx={{ fontSize: { md: 20 } }}
-                    noWrap
-                  >
-                    {item.title}
-                  </Typography>
-                )}
-              </ButtonLink>
-            ))}
-          </FlexBox>
+            <NavLinks type="drawer" />
+          </Drawer>
         </FlexBox>
       </AppBar>
       <Box component="main" sx={{ padding: 2 }}>
