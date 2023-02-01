@@ -1,5 +1,6 @@
 import Video from "@/src/models/video";
 import removeAccents from "@/src/utils/remove-accents";
+import VideoHelper from "@/src/utils/video-helper";
 import { Favorite } from "@mui/icons-material";
 import { alpha, Box, colors, Typography } from "@mui/material";
 import Link from "next/link";
@@ -7,11 +8,7 @@ import React, { useMemo } from "react";
 
 export default function VideoCard({ video }: { video: Video }) {
   const url = useMemo(() => {
-    return `/video/${removeAccents(video.title)
-      .toLowerCase()
-      .split(" ")
-      .slice(0, 16)
-      .join("-")}-${video.id}`;
+    return `/video/${VideoHelper.getSlug(video)}`;
   }, [video]);
 
   return (

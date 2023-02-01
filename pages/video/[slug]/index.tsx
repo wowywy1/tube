@@ -2,6 +2,7 @@ import VideoList from "@/src/components/VideoList";
 import VIDEOS from "@/src/constants/videos";
 import Video from "@/src/models/video";
 import VideoPageHead from "@/src/page-head/VideoPageHead";
+import VideoHelper from "@/src/utils/video-helper";
 import { Container, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { GetServerSidePropsContext } from "next";
@@ -32,8 +33,15 @@ const VideoPage = ({ video, related }: { video: Video; related: Video[] }) => {
   );
 };
 
-export const getServerSideProps = (context: GetServerSidePropsContext) => {
-  const slug = context.query.slug || "";
+export const getStaticPaths = async () => {
+  const paths = VIDEOS.map((video) => ({
+    params: { slug: VideoHelper.getSlug(video) },
+  }));
+  return { paths, fallback: false };
+};
+
+export const getStaticProps = (context: GetServerSidePropsContext) => {
+  const slug = context.params?.slug || "";
   if (!slug || slug.indexOf("-") == -1) return;
   const videoId = Number(slug.slice(slug.lastIndexOf("-") + 1));
   const index = VIDEOS.findIndex((video) => video.id == videoId);
