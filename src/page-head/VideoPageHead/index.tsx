@@ -62,7 +62,7 @@ const VideoPageHead = ({ video }: { video: Video }) => {
             "@type": "VideoObject",
             "name": "${data.title}",
             "description": "${data.description}",
-            "thumbnailUrl": "${data.image}",
+            "thumbnailUrl": "${data.image}"
           }`,
           }}
         />
