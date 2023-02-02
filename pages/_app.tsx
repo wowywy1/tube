@@ -1,17 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import CssBaseline from "@mui/material/CssBaseline";
+import "nprogress/nprogress.css";
 import "@/styles/global.css";
-
-// Polyfills
+import "@/styles/customs.css";
 import { StyledEngineProvider, ThemeProvider } from "@mui/material/styles";
 import BRAND_DATA from "@/src/constants/brand";
 import { theme } from "@/src/utils/theme";
 import { AppProps } from "next/app";
 import Script from "next/script";
 import MainLayout from "@/src/layouts/MainLayout";
+import { useRouter } from "next/router";
+import { pageview } from "@/src/lib/ga";
+import nProgress from "nprogress";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteStart = (url: string) => {
+      pageview(url);
+      nProgress.start();
+    };
+    const handleRouteDone = () => nProgress.done();
+
+    nProgress.configure({ showSpinner: false });
+    router.events.on("routeChangeStart", handleRouteStart);
+    router.events.on("routeChangeComplete", handleRouteDone);
+    router.events.on("routeChangeError", handleRouteDone);
+    return () => {
+      router.events.off("routeChangeStart", handleRouteStart);
+      router.events.off("routeChangeComplete", handleRouteDone);
+      router.events.off("routeChangeError", handleRouteDone);
+    };
+  }, [router.events]);
+
   return (
     <React.Fragment>
       <Head>
