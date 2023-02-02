@@ -29,13 +29,10 @@ export default function MainLayout({ children }: { children: ReactNode }) {
         position="static"
         sx={{
           px: 2,
-          alignItems: "center",
-          display: { xs: "block", lg: "flex" },
-          flexDirection: "row",
           pb: { xs: 2, md: 0 },
         }}
       >
-        <FlexBox sx={{ flex: 1, flexWrap: "wrap" }}>
+        <FlexBox sx={{ flex: 1, flexWrap: "wrap", justifyContent: "center" }}>
           <Box
             component="h1"
             sx={{
@@ -59,6 +56,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
             placeholder="Tìm kiếm"
           />
           <NavLinks
+            maxWidth="md"
             sx={{
               display: { xs: "none", sm: "flex" },
               ml: { xs: 0, lg: 2 },
