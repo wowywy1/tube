@@ -3,13 +3,15 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="vi">
       <Head>
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="author" content={BRAND_DATA.DOMAIN} />
         <meta charSet="utf-8" />
         <meta name="application-name" content={BRAND_DATA.NAME} />
+        <meta name="language" content="vietnamese" />
+        <meta http-equiv="content-language" content="en-gb"></meta>
 
         <link
           rel="apple-touch-icon"

@@ -5,10 +5,12 @@ const CommonHead = ({
   title,
   description,
   keywords,
+  image,
 }: {
   title: string;
   description: string;
   keywords: string;
+  image?: string;
 }) => {
   return (
     <Head>
@@ -18,9 +20,10 @@ const CommonHead = ({
       <meta name="keywords" content={keywords} />
       <meta name="author" content={BRAND_DATA.NAME} />
       <meta name="robots" content="index, follow" />
-      <meta name="language" content="Vietnamese" />
       <meta property="og:title" content={title} />
+      <meta property="og:site_name" content={BRAND_DATA.NAME} />
       <meta property="og:description" content={description} />
+      {image && <meta property="og:image" content={image} />}
     </Head>
   );
 };

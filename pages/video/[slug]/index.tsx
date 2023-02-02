@@ -1,4 +1,5 @@
 import VideoList from "@/src/components/VideoList";
+import BRAND_DATA from "@/src/constants/brand";
 import VIDEOS from "@/src/constants/videos";
 import Video from "@/src/models/video";
 import VideoPageHead from "@/src/page-head/VideoPageHead";
@@ -12,17 +13,29 @@ const VideoPage = ({ video, related }: { video: Video; related: Video[] }) => {
     <>
       <VideoPageHead video={video} />
       <Container maxWidth="xl">
-        <Typography className="sb" variant="h5" component="h1">
-          {video.title}
-        </Typography>
-        <Box sx={{ width: "100%", aspectRatio: "16/9", mt: 2, maxWidth: "md" }}>
-          <iframe
-            src={`https://85tube.com/embed/${video.id}`}
-            height="100%"
-            width="100%"
-            frameBorder="0"
-            allowFullScreen
-          />
+        <Box maxWidth="md">
+          <Typography className="sb" variant="h5" component="h1">
+            {video.title}
+          </Typography>
+          <Box
+            sx={{ width: "100%", aspectRatio: "16/9", mt: 2, maxWidth: "md" }}
+          >
+            <iframe
+              src={`https://85tube.com/embed/${video.id}`}
+              height="100%"
+              width="100%"
+              frameBorder="0"
+              allowFullScreen
+            />
+          </Box>
+          <Typography>{`${video.title} ${
+            BRAND_DATA.NAME
+          } ${video.categories.join(
+            " "
+          )}  Phim sex Việt Nam, Trung Quốc miễn phí, cập nhật`}</Typography>
+          <Typography variant="body2">{`${video.categories.join(
+            ", "
+          )}, sex, làm tình hóng phốt`}</Typography>
         </Box>
         <Typography className="sb" variant="h6" component="h2" sx={{ mt: 3 }}>
           Video liên quan
