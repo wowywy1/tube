@@ -1,12 +1,12 @@
 import VideoListPage from "@/src/components/VideoListPage";
 import { VIDEO_PER_PAGE } from "@/src/constants/app";
 import VIDEOS from "@/src/constants/videos";
-import HayNhatPageHead from "@/src/page-head/HayNhatPageHead";
+import PhoBienPageHead from "@/src/page-head/PhoBienPageHead";
 import { Container } from "@mui/material";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 
-export default function HayNhatPage() {
+export default function PhoBienPage() {
   const router = useRouter();
 
   const videos = useMemo(() => {
@@ -20,7 +20,7 @@ export default function HayNhatPage() {
 
   return (
     <>
-      <HayNhatPageHead />
+      <PhoBienPageHead />
       <Container maxWidth="xl">
         <VideoListPage
           videos={videos}

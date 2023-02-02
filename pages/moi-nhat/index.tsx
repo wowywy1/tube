@@ -1,7 +1,7 @@
 import VideoListPage from "@/src/components/VideoListPage";
 import { VIDEO_PER_PAGE } from "@/src/constants/app";
 import VIDEOS from "@/src/constants/videos";
-import HayNhatPageHead from "@/src/page-head/HayNhatPageHead";
+import MoiNhatPageHead from "@/src/page-head/MoiNhatPageHead";
 import { Container } from "@mui/material";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
@@ -17,7 +17,7 @@ export default function MoiNhatPage() {
 
   return (
     <>
-      <HayNhatPageHead />
+      <MoiNhatPageHead />
       <Container maxWidth="xl">
         <VideoListPage
           videos={videos}

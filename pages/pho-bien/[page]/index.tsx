@@ -1,3 +1,3 @@
-import HayNhatPage from "..";
+import PhoBienPage from "..";
 
-export default HayNhatPage;
+export default PhoBienPage;
