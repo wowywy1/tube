@@ -1,4 +1,5 @@
 import VideoList from "@/src/components/VideoList";
+import VideoView from "@/src/components/VideoView";
 import BRAND_DATA from "@/src/constants/brand";
 import VIDEOS from "@/src/constants/videos";
 import Video from "@/src/models/video";
@@ -17,17 +18,7 @@ const VideoPage = ({ video, related }: { video: Video; related: Video[] }) => {
           <Typography className="sb" variant="h5" component="h1">
             {video.title}
           </Typography>
-          <Box
-            sx={{ width: "100%", aspectRatio: "16/9", mt: 2, maxWidth: "md" }}
-          >
-            <iframe
-              src={`https://85tube.com/embed/${video.id}`}
-              height="100%"
-              width="100%"
-              frameBorder="0"
-              allowFullScreen
-            />
-          </Box>
+          <VideoView video={video} />
           <Typography>{`${video.title} ${
             BRAND_DATA.NAME
           } ${video.categories.join(
