@@ -5,6 +5,7 @@ import BRAND_DATA from "@/src/constants/brand";
 import VIDEOS from "@/src/constants/videos";
 import Video from "@/src/models/video";
 import VideoPageHead from "@/src/page-head/VideoPageHead";
+import getVideoMin from "@/src/utils/get-video-min";
 import VideoHelper from "@/src/utils/video-helper";
 import { Favorite } from "@mui/icons-material";
 import { Container, Divider, Typography } from "@mui/material";
@@ -67,9 +68,9 @@ export const getStaticProps = (context: GetServerSidePropsContext) => {
   if (index == -1) return;
 
   const video = VIDEOS[index];
-  const related = VIDEOS.slice(Math.max(0, index - 10), index + 11).filter(
-    (video) => video.id != videoId
-  );
+  const related = VIDEOS.slice(Math.max(0, index - 10), index + 11)
+    .filter((video) => video.id != videoId)
+    .map((video) => getVideoMin(video));
   return { props: { video, related } };
 };
 

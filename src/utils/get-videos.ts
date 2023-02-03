@@ -1,6 +1,7 @@
 import { VIDEO_PER_PAGE } from "../constants/app";
 import VIDEOS from "../constants/videos";
 import Video from "../models/video";
+import getVideoMin from "./get-video-min";
 
 const _getCompareNumber = (
   video: Video,
@@ -38,13 +39,9 @@ const getVideos = ({
     if (aa != bb) return aa - bb;
     return _getCompareNumber(a, type) - _getCompareNumber(b, type);
   });
-  return sortedVideos.slice((page - 1) * count, page * count).map((video) => ({
-    id: video.id,
-    title: video.title,
-    duration: video.duration,
-    thumb: video.thumb,
-    rating: video.rating || "",
-  }));
+  return sortedVideos
+    .slice((page - 1) * count, page * count)
+    .map((video) => getVideoMin(video));
 };
 
 export default getVideos;
