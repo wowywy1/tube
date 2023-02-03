@@ -26,13 +26,13 @@ const getVideos = ({
 }) => {
   const sortedVideos = VIDEOS.sort((a, b) => {
     const aa =
-      a.categories.includes("Nứng - Show hàng") ||
-      a.categories.includes("Quay lén")
+      a.categories?.includes("Nứng - Show hàng") ||
+      a.categories?.includes("Quay lén")
         ? 0
         : 1;
     const bb =
-      b.categories.includes("Nứng - Show hàng") ||
-      b.categories.includes("Quay lén")
+      b.categories?.includes("Nứng - Show hàng") ||
+      b.categories?.includes("Quay lén")
         ? 0
         : 1;
     if (aa != bb) return aa - bb;
@@ -43,7 +43,7 @@ const getVideos = ({
     title: video.title,
     duration: video.duration,
     thumb: video.thumb,
-    rating: video.rating,
+    rating: video.rating || "",
   }));
 };
 

@@ -4,8 +4,8 @@ interface Video {
   url?: string;
   duration: string;
   rating?: string;
-  categories: string[];
-  tags: string[];
+  categories?: string[];
+  tags?: string[];
   thumb: string;
   filecode?: string;
   views?: number;
