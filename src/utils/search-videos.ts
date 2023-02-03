@@ -25,7 +25,7 @@ const searchVideo = ({
   if (query == "") return { videos: [], count: 0 };
   const keys = query.trim().toLowerCase().split(" ");
   const filteredVideos = category
-    ? VIDEOS.filter((video) => video.categories.includes(category))
+    ? VIDEOS.filter((video) => video.categories?.includes(category))
     : VIDEOS;
   const sortedVideos = filteredVideos.sort(
     (a, b) => _getMatchValue(b, keys) - _getMatchValue(a, keys)

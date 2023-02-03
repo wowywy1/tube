@@ -35,10 +35,10 @@ const VideoPage = ({ video, related }: { video: Video; related: Video[] }) => {
 
           <Typography>{`${video.title} ${
             BRAND_DATA.NAME
-          } ${video.categories.join(
+          } ${video.categories?.join(
             " "
           )}  Phim sex Việt Nam, Trung Quốc miễn phí, cập nhật`}</Typography>
-          <Typography variant="body2">{`${video.categories.join(
+          <Typography variant="body2">{`${video.categories?.join(
             ", "
           )}, sex, làm tình hóng phốt`}</Typography>
         </Box>

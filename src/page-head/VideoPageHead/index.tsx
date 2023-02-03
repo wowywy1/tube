@@ -10,10 +10,10 @@ const VideoPageHead = ({ video }: { video: Video }) => {
     const title = `${video.title} | ${BRAND_DATA.NAME}`;
     const description = `${video.title} ${
       BRAND_DATA.NAME
-    } ${video.categories.join(
+    } ${video.categories?.join(
       " "
     )} Phim sex Việt Nam, Trung Quốc miễn phí, cập nhật`;
-    const keywords = `${video.categories.join(", ")}, sex, làm tình hóng phốt`;
+    const keywords = `${video.categories?.join(", ")}, sex, làm tình hóng phốt`;
     const image = video.thumb;
     const url = `${BRAND_DATA.DOMAIN}/video/${VideoHelper.getSlug(video)}`;
     const rating = Number(video.rating?.replace("%", "")) / 20;
