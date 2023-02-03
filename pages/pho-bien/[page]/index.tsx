@@ -5,7 +5,7 @@ import { GetStaticPropsContext } from "next";
 import PhoBienPage from "..";
 
 export const getStaticPaths = () => {
-  const paths = Array(Math.floor(VIDEOS.length / VIDEO_PER_PAGE))
+  const paths = Array(Math.ceil(VIDEOS.length / VIDEO_PER_PAGE))
     .fill(1)
     .map((_, index) => ({ params: { page: String(index + 1) } }));
   return { paths, fallback: false };

@@ -20,10 +20,11 @@ export default function PhoBienPage({
       <PhoBienPageHead page={page} />
       <Container maxWidth="xl">
         <VideoListPage
+          title="Video được xem nhiều"
           videos={videos}
           page={Number(page || "1")}
-          pageCount={Math.floor(VIDEOS.length / VIDEO_PER_PAGE)}
-          title="Video được xem nhiều"
+          pageCount={Math.ceil(VIDEOS.length / VIDEO_PER_PAGE)}
+          pageRoute="/pho-bien"
         />
       </Container>
     </>
