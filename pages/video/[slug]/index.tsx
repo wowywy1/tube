@@ -1,3 +1,4 @@
+import FlexBox from "@/src/common-ui/FlexBox";
 import VideoList from "@/src/components/VideoList";
 import VideoView from "@/src/components/VideoView";
 import BRAND_DATA from "@/src/constants/brand";
@@ -5,7 +6,8 @@ import VIDEOS from "@/src/constants/videos";
 import Video from "@/src/models/video";
 import VideoPageHead from "@/src/page-head/VideoPageHead";
 import VideoHelper from "@/src/utils/video-helper";
-import { Container, Typography } from "@mui/material";
+import { Favorite } from "@mui/icons-material";
+import { Container, Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { GetServerSidePropsContext } from "next";
 
@@ -16,9 +18,21 @@ const VideoPage = ({ video, related }: { video: Video; related: Video[] }) => {
       <Container maxWidth="xl">
         <Box maxWidth="md">
           <VideoView video={video} />
-          <Typography className="sb" variant="h5" component="h1">
-            {video.title}
-          </Typography>
+          <FlexBox sx={{ mb: 2 }}>
+            <Typography
+              className="sb"
+              variant="h5"
+              component="h1"
+              sx={{ flex: 1 }}
+            >
+              {video.title}
+            </Typography>
+            <Box className="df aic">
+              <Favorite color="primary" sx={{ mr: 1 }} />
+              <Typography variant="h6">{video.rating}</Typography>
+            </Box>
+          </FlexBox>
+
           <Typography>{`${video.title} ${
             BRAND_DATA.NAME
           } ${video.categories.join(
@@ -28,6 +42,7 @@ const VideoPage = ({ video, related }: { video: Video; related: Video[] }) => {
             ", "
           )}, sex, làm tình hóng phốt`}</Typography>
         </Box>
+        <Divider sx={{ mt: 4 }} />
         <Typography className="sb" variant="h6" component="h2" sx={{ mt: 3 }}>
           Video liên quan
         </Typography>
