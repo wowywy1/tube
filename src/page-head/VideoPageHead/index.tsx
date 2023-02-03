@@ -18,6 +18,8 @@ const VideoPageHead = ({ video }: { video: Video }) => {
     const url = `${BRAND_DATA.DOMAIN}/video/${VideoHelper.getSlug(video)}`;
     const rating = Number(video.rating?.replace("%", "")) / 20;
     const ratingCount = Math.max((video.views || 0) / 100, 1);
+    const date = new Date(video.updated_at);
+    const uploadDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
     return {
       title,
       description,
@@ -26,6 +28,7 @@ const VideoPageHead = ({ video }: { video: Video }) => {
       url,
       rating,
       ratingCount,
+      uploadDate,
     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,6 +38,7 @@ const VideoPageHead = ({ video }: { video: Video }) => {
     <>
       <CommonHead {...data}></CommonHead>
       <Head>
+        <link rel="canonical" href={data.url} />
         <script
           type="application/ld+json"
           id="organization-script"
@@ -62,7 +66,8 @@ const VideoPageHead = ({ video }: { video: Video }) => {
             "@type": "VideoObject",
             "name": "${data.title}",
             "description": "${data.description}",
-            "thumbnailUrl": "${data.image}"
+            "thumbnailUrl": "${data.image}",
+            "uploadDate": "${data.uploadDate}"
           }`,
           }}
         />
