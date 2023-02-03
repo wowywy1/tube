@@ -11,6 +11,7 @@ interface Video {
   views?: number;
   originalTitle?: string;
   translated?: boolean;
+  updated_at: string;
 }
 
 export default Video;
