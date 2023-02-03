@@ -1,7 +1,7 @@
 interface Video {
   title: string;
   id: string | number;
-  url: string;
+  url?: string;
   duration: string;
   rating?: string;
   categories: string[];

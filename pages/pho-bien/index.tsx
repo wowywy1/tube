@@ -5,7 +5,6 @@ import Video from "@/src/models/video";
 import PhoBienPageHead from "@/src/page-head/PhoBienPageHead";
 import getVideos from "@/src/utils/get-videos";
 import { Container } from "@mui/material";
-import router from "next/router";
 import { GetStaticPropsContext } from "next/types";
 
 export default function PhoBienPage({

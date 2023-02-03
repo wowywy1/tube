@@ -38,7 +38,13 @@ const getVideos = ({
     if (aa != bb) return aa - bb;
     return _getCompareNumber(a, type) - _getCompareNumber(b, type);
   });
-  return sortedVideos.slice((page - 1) * count, page * count);
+  return sortedVideos.slice((page - 1) * count, page * count).map((video) => ({
+    id: video.id,
+    title: video.title,
+    duration: video.duration,
+    thumb: video.thumb,
+    rating: video.rating,
+  }));
 };
 
 export default getVideos;

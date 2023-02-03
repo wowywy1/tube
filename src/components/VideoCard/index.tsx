@@ -1,5 +1,4 @@
 import Video from "@/src/models/video";
-import removeAccents from "@/src/utils/remove-accents";
 import VideoHelper from "@/src/utils/video-helper";
 import { Favorite } from "@mui/icons-material";
 import { alpha, Box, colors, Typography } from "@mui/material";
