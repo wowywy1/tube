@@ -6,8 +6,6 @@ import MoiNhatPageHead from "@/src/page-head/MoiNhatPageHead";
 import getVideos from "@/src/utils/get-videos";
 import { Container } from "@mui/material";
 import { GetStaticPropsContext } from "next";
-import router, { useRouter } from "next/router";
-import { useMemo } from "react";
 
 export default function MoiNhatPage({
   videos,
@@ -21,10 +19,11 @@ export default function MoiNhatPage({
       <MoiNhatPageHead page={page} />
       <Container maxWidth="xl">
         <VideoListPage
+          title="Video cập nhật mới nhất"
           videos={videos}
           page={Number(page || "1")}
-          pageCount={Math.floor(VIDEOS.length / VIDEO_PER_PAGE)}
-          title="Video cập nhật mới nhất"
+          pageCount={Math.ceil(VIDEOS.length / VIDEO_PER_PAGE)}
+          pageRoute="/moi-nhat"
         />
       </Container>
     </>

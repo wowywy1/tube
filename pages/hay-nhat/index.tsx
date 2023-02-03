@@ -19,10 +19,11 @@ export default function HayNhatPage({
       <HayNhatPageHead page={page} />
       <Container maxWidth="xl">
         <VideoListPage
+          title="Video được yêu thích nhất"
           videos={videos}
           page={Number(page || "1")}
-          pageCount={Math.floor(VIDEOS.length / VIDEO_PER_PAGE)}
-          title="Video được yêu thích nhất"
+          pageCount={Math.ceil(VIDEOS.length / VIDEO_PER_PAGE)}
+          pageRoute="/hay-nhat"
         />
       </Container>
     </>

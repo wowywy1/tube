@@ -1,8 +1,8 @@
 import FlexBox from "@/src/common-ui/FlexBox";
-import TextField from "@/src/common-ui/TextField";
 import NavLinks from "@/src/components/NavLinks";
+import SearchField from "@/src/components/SearchField";
 import BRAND_DATA from "@/src/constants/brand";
-import { Search, List } from "@mui/icons-material";
+import { List } from "@mui/icons-material";
 import {
   AppBar,
   Box,
@@ -49,12 +49,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
               />
             </Link>
           </Box>
-          <TextField
-            fullWidth
-            sx={{ flex: 1, width: "100%", ml: 2, minWidth: "260px" }}
-            icon={<Search />}
-            placeholder="Tìm kiếm"
-          />
+          <SearchField />
           <NavLinks
             maxWidth="md"
             sx={{

@@ -8,7 +8,7 @@ import Link from "next/link";
 const Pagination = ({
   pageRoute,
   ...PaginationProps
-}: { pageRoute: string } & PaginationProps) => {
+}: { pageRoute?: string } & PaginationProps) => {
   return (
     <MUIPagination
       {...PaginationProps}
@@ -21,14 +21,19 @@ const Pagination = ({
       size="large"
       variant="outlined"
       color="primary"
-      renderItem={(item) => {
-        const url = item.page == 1 ? pageRoute : `${pageRoute}/${item.page}`;
-        return (
-          <Link href={url}>
-            <PaginationItem {...item} />
-          </Link>
-        );
-      }}
+      renderItem={
+        pageRoute
+          ? (item) => {
+              const url =
+                item.page == 1 ? pageRoute : `${pageRoute}/${item.page}`;
+              return (
+                <Link href={url}>
+                  <PaginationItem {...item} />
+                </Link>
+              );
+            }
+          : undefined
+      }
     />
   );
 };
