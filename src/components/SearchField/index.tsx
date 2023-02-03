@@ -13,7 +13,7 @@ const SearchField = () => {
       component="form"
       onSubmit={(e) => {
         e.preventDefault();
-        router.push(`/search?q=${inputRef.current?.value}`);
+        // router.push(`/search?q=${inputRef.current?.value}`);
       }}
     >
       <TextField
@@ -21,7 +21,7 @@ const SearchField = () => {
         fullWidth
         sx={{ flex: 1, width: "100%", ml: 2, minWidth: "260px" }}
         icon={<Search />}
-        onClickIcon={() => router.push(`/search?q=${inputRef.current?.value}`)}
+        // onClickIcon={() => router.push(`/search?q=${inputRef.current?.value}`)}
         placeholder="Tìm kiếm"
         type="input"
       />

@@ -6,7 +6,7 @@ export default function TextField({
   icon,
   onClickIcon,
   ...TextFieldProps
-}: { icon: ReactNode; onClickIcon: () => void } & TextFieldProps) {
+}: { icon: ReactNode; onClickIcon?: () => void } & TextFieldProps) {
   return (
     <MUITextField
       {...TextFieldProps}
