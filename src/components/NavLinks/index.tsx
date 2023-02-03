@@ -34,7 +34,7 @@ const NavLinks = ({
             padding: type == "header" ? undefined : "16px",
           }}
           key={item.link}
-          color={item.link == router.asPath ? "primary" : "inherit"}
+          color={router.asPath.startsWith(item.link) ? "primary" : "inherit"}
         >
           {item.icon}
           {item.title && (
