@@ -1,32 +1,26 @@
 import VideoListPage from "@/src/components/VideoListPage";
 import { VIDEO_PER_PAGE } from "@/src/constants/app";
 import VIDEOS from "@/src/constants/videos";
+import Video from "@/src/models/video";
 import HayNhatPageHead from "@/src/page-head/HayNhatPageHead";
+import getVideos from "@/src/utils/get-videos";
 import { Container } from "@mui/material";
-import { useRouter } from "next/router";
-import { useMemo } from "react";
+import { GetStaticPropsContext } from "next";
 
-export default function HayNhatPage() {
-  const router = useRouter();
-
-  const videos = useMemo(() => {
-    const sortedVideos = VIDEOS.sort(
-      (a, b) => a.rating?.localeCompare(b.rating || "") || 0
-    );
-    const page = Number(router.query.page || "1") - 1;
-    return sortedVideos.slice(
-      page * VIDEO_PER_PAGE,
-      (page + 1) * VIDEO_PER_PAGE
-    );
-  }, [router.query.page]);
-
+export default function HayNhatPage({
+  videos,
+  page,
+}: {
+  videos: Video[];
+  page: number;
+}) {
   return (
     <>
-      <HayNhatPageHead />
+      <HayNhatPageHead page={page} />
       <Container maxWidth="xl">
         <VideoListPage
           videos={videos}
-          page={Number(router.query.page || "1")}
+          page={Number(page || "1")}
           pageCount={Math.floor(VIDEOS.length / VIDEO_PER_PAGE)}
           title="Video được yêu thích nhất"
         />
@@ -34,3 +28,8 @@ export default function HayNhatPage() {
     </>
   );
 }
+
+export const getStaticProps = (context: GetStaticPropsContext) => {
+  const videos = getVideos({ type: "hay-nhat", count: 30 });
+  return { props: { videos } };
+};

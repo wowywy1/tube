@@ -11,7 +11,7 @@ export default function Document() {
         <meta charSet="utf-8" />
         <meta name="application-name" content={BRAND_DATA.NAME} />
         <meta name="language" content="vietnamese" />
-        <meta http-equiv="content-language" content="en-gb"></meta>
+        <meta httpEquiv="content-language" content="vi-en"></meta>
 
         <link
           rel="apple-touch-icon"

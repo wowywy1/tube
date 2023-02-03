@@ -1,23 +1,18 @@
 import VideoList from "@/src/components/VideoList";
 import VIDEOS from "@/src/constants/videos";
 import SectionLayout from "@/src/layouts/SectionLayout";
+import Video from "@/src/models/video";
 import HomePageHead from "@/src/page-head/HomePageHead";
+import getVideos from "@/src/utils/get-videos";
 import { Container } from "@mui/system";
-import React, { useMemo } from "react";
+import { GetStaticPropsContext } from "next";
+import React from "react";
 
-export default function HomePage() {
-  const videos = useMemo(() => {
-    const moiNhat = VIDEOS.slice(0, 10);
-    const hayNhat = VIDEOS.filter((VIDEO) => VIDEO.rating == "100%").slice(
-      0,
-      10
-    );
-    const phoBien = VIDEOS.sort(
-      (a, b) => (a.views || 0) - (b.views || 0)
-    ).slice(0, 10);
-    return { moiNhat, hayNhat, phoBien };
-  }, []);
-
+export default function HomePage({
+  videos,
+}: {
+  videos: { phoBien: Video[]; moiNhat: Video[]; hayNhat: Video[] };
+}) {
   return (
     <>
       <HomePageHead />
@@ -35,3 +30,11 @@ export default function HomePage() {
     </>
   );
 }
+
+export const getStaticProps = (context: GetStaticPropsContext) => {
+  const moiNhat = getVideos({ type: "moi-nhat", count: 12 });
+  const hayNhat = getVideos({ type: "hay-nhat", count: 12 });
+  const phoBien = getVideos({ type: "pho-bien", count: 12 });
+
+  return { props: { videos: { moiNhat, hayNhat, phoBien } } };
+};

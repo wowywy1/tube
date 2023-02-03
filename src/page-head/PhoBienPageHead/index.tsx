@@ -1,16 +1,14 @@
 import BRAND_DATA from "@/src/constants/brand";
-import { useRouter } from "next/router";
 import { useMemo } from "react";
 import CommonHead from "../CommonHead";
 
-const PhoBienPageHead = () => {
-  const router = useRouter();
+const PhoBienPageHead = ({ page }: { page?: number }) => {
   const data = useMemo(() => {
     const title = `${BRAND_DATA.NAME} | Video phổ biến | Khoe hàng quay lén${
-      router.query.page ? " | Trang " + router.query.page : ""
+      page ? " | Trang " + page : ""
     }`;
     const description = `Tổng hợp video clip show hàng, khoe hàng, hóng phốt, làm tình, quay lén, mới nhất, phim sex Việt Nam, Trung Quốc miễn phí, được xem nhiều ${
-      router.query.page ? "Trang " + router.query.page : ""
+      page ? "Trang " + page : ""
     }`;
     const keywords = `sex, show hàng, khoe hàng, làm tình, quay lén, hóng phốt, phổ biến`;
     return {
