@@ -15,10 +15,10 @@ const VideoPage = ({ video, related }: { video: Video; related: Video[] }) => {
       <VideoPageHead video={video} />
       <Container maxWidth="xl">
         <Box maxWidth="md">
+          <VideoView video={video} />
           <Typography className="sb" variant="h5" component="h1">
             {video.title}
           </Typography>
-          <VideoView video={video} />
           <Typography>{`${video.title} ${
             BRAND_DATA.NAME
           } ${video.categories.join(
