@@ -103,6 +103,32 @@ const VideoPageHead = ({ video }: { video: Video }) => {
             }`,
           }}
         />
+        <script
+          type="application/ld+json"
+          id="organization-script"
+          dangerouslySetInnerHTML={{
+            __html: `{
+              "@context": "https://schema.org/", 
+              "@type": "BreadcrumbList", 
+              "itemListElement": [{
+                "@type": "ListItem", 
+                "position": 1, 
+                "name": "ClipShow",
+                "item": "${BRAND_DATA.DOMAIN}"  
+              },{
+                "@type": "ListItem", 
+                "position": 2, 
+                "name": "video",
+                "item": "${BRAND_DATA.DOMAIN}/video"  
+              },{
+                "@type": "ListItem", 
+                "position": 3, 
+                "name": "${data.title}",
+                "item": "${data.url}"  
+              }]
+            }`,
+          }}
+        />
       </Head>
     </>
   );

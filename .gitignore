@@ -38,5 +38,7 @@ next-env.d.ts
 crawl.js
 upvideo.js
 translate.js
+revalidate.js
+translate-data.js
 data_update.json
 data.json
