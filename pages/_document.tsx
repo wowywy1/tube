@@ -1,5 +1,6 @@
 import BRAND_DATA from "@/src/constants/brand";
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -41,6 +42,12 @@ export default function Document() {
       </Head>
       <body>
         <Main />
+        <Script id="google-analytics" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-29J3M10LK9'); `}
+        </Script>
         <NextScript />
       </body>
     </Html>

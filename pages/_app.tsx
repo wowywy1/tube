@@ -55,12 +55,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         src="https://www.googletagmanager.com/gtag/js?id=G-29J3M10LK9"
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-29J3M10LK9'); `}
-      </Script>
     </React.Fragment>
   );
 }

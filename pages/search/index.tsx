@@ -1,13 +1,13 @@
 import VideoListPage from "@/src/components/VideoListPage";
 import { VIDEO_PER_PAGE } from "@/src/constants/app";
 import Video from "@/src/models/video";
-import searchVideo from "@/src/utils/search-videos";
 import { Container } from "@mui/material";
 import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { event } from "@/src/lib/ga";
 import Head from "next/head";
+import request from "@/src/utils/request";
 
 const SearchPage = ({ videos, count }: { videos: Video[]; count: number }) => {
   const router = useRouter();
@@ -28,7 +28,7 @@ const SearchPage = ({ videos, count }: { videos: Video[]; count: number }) => {
               ? `Kết quả tìm kiếm cho "${router.query.q}"`
               : "Hãy nhập nội dung vào ô tìm kiếm nhé"
           }
-          videos={videos}
+          videos={videos || []}
           page={Number(router.query.page || "1")}
           pageCount={Math.ceil(count / VIDEO_PER_PAGE)}
           onPageChange={(page) =>
@@ -40,16 +40,23 @@ const SearchPage = ({ videos, count }: { videos: Video[]; count: number }) => {
   );
 };
 
-export const getServerSideProps = (context: GetServerSidePropsContext) => {
+export const getServerSideProps = async (
+  context: GetServerSidePropsContext
+) => {
   context.res.setHeader(
     "Cache-Control",
-    "public, s-maxage=31536000, stale-while-revalidate"
+    "public, s-maxage=10, stale-while-revalidate=59"
   );
-  const { videos, count } = searchVideo({
-    query: context.query.q?.toString() || "",
-    page: Number(context.query.page || "1"),
-  });
-  return { props: { videos, count } };
+  let props = {
+    videos: [],
+    count: 0,
+  };
+  if (context.query?.q) {
+    props = await request(`https://search.clipshow.fun`, {
+      params: context.query,
+    });
+  }
+  return { props };
 };
 
 export default SearchPage;
