@@ -1,7 +1,9 @@
-export default function Home() {
+import { Container } from "@mui/system";
+
+export default function TheLoaiPage() {
   return (
     <>
-      <h1>HELLO</h1>
+      <Container></Container>
     </>
   );
 }
