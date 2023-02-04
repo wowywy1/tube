@@ -64,7 +64,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <Script
         async
         type="text/javascript"
-        src="//pl18398861.highcpmrevenuenetwork.com/fa/cc/3d/facc3d7bdb9973d0593846fd1180aee3.js"
+        src="//absentlygratefulcamomile.com/fa/cc/3d/facc3d7bdb9973d0593846fd1180aee3.js"
       ></Script>
     </React.Fragment>
   );
