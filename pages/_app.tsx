@@ -61,12 +61,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   gtag('js', new Date());
   gtag('config', 'G-29J3M10LK9'); `}
       </Script>
-      <Script
-        type="text/javascript"
-        data-cfasync="false"
-        async
-        src="https://poweredby.jads.co/js/jads.js"
-      ></Script>
     </React.Fragment>
   );
 }

@@ -12,9 +12,8 @@ const VideoList = ({ videos }: { videos: Video[] }) => {
       video,
     }));
     videosWithAds.splice(1, 0, { type: "300x250" });
-    // videosWithAds.splice(4, 0, { type: "320x50" });
-    // videosWithAds.splice(9, 0, { type: "320x50" });
-    // videosWithAds.splice(15, 0, { type: "320x50" });
+    if (videosWithAds.length > 12)
+      videosWithAds.splice(12, 0, { type: "250x250" });
     return videosWithAds;
   }, [videos]);
 
