@@ -17,6 +17,10 @@ const VideoView = ({ video, ...BoxProps }: { video: Video } & BoxProps) => {
   }, [video]);
 
   useEffect(() => {
+    setCurrentLink(0);
+  }, [video]);
+
+  useEffect(() => {
     setLoading(true);
   }, [video, currentLink]);
 
