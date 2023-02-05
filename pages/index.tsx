@@ -22,7 +22,7 @@ export default function HomePage({
       <HomePageHead />
       <Container maxWidth="xl">
         <Box sx={{ textAlign: "center" }}>
-          <AdsPlacement type={upLg ? "728x90" : "320x50"} />
+          <AdsPlacement type={upLg ? "728x90" : "300x50"} />
         </Box>
         <SectionLayout title="Phổ biến" url="/pho-bien" sx={{ mt: 2 }}>
           <VideoList videos={videos.phoBien} />

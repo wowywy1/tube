@@ -43,7 +43,15 @@ const AdsPlacement = ({ type }: { type: Ads }) => {
             data-width="300"
             data-height="262"
           ></ins>
-        ) : type == "320x50" ? (
+        ) : type == "300x100" ? (
+          <ins
+            ref={ref}
+            className="juicyads-script"
+            id="1010910"
+            data-width="300"
+            data-height="100"
+          ></ins>
+        ) : type == "300x50" ? (
           <ins
             ref={ref}
             className="juicyads-script"
