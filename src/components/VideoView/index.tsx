@@ -25,7 +25,7 @@ const VideoView = ({ video, ...BoxProps }: { video: Video } & BoxProps) => {
       <Box
         sx={{
           width: "100%",
-          aspectRatio: "16/9",
+          aspectRatio: { xs: "1/1", sm: "16/9" },
           mt: 2,
           maxWidth: "md",
         }}
