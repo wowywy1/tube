@@ -62,9 +62,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   gtag('config', 'G-29J3M10LK9'); `}
       </Script>
       <Script
-        async
         type="text/javascript"
-        src="//pl18398861.highcpmrevenuenetwork.com/fa/cc/3d/facc3d7bdb9973d0593846fd1180aee3.js"
+        data-cfasync="false"
+        async
+        src="https://poweredby.jads.co/js/jads.js"
       ></Script>
     </React.Fragment>
   );
