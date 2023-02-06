@@ -25,10 +25,10 @@ const SearchPage = () => {
     setLoading(true);
     setError(false);
     try {
-      const response = await request(`${window.location.origin}/api/search`, {
+      const response = await request(`https://search.clipshow.fun`, {
         params,
       });
-      if (response.code == 200) {
+      if (response.status == 200) {
         setData(response.result);
         event({ action: "search", params: { query: router.query.q } });
       } else {
