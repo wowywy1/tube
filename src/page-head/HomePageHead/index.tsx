@@ -28,7 +28,6 @@ const HomePageHead = () => {
         ></meta>
         <script
           type="application/ld+json"
-          id="organization-script"
           dangerouslySetInnerHTML={{
             __html: `{
               "@context": "https://schema.org/",
@@ -45,7 +44,6 @@ const HomePageHead = () => {
         />
         <script
           type="application/ld+json"
-          id="organization-script"
           dangerouslySetInnerHTML={{
             __html: `{
               "@context": "https://schema.org",

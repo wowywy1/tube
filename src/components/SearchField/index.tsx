@@ -13,6 +13,7 @@ const SearchField = () => {
       component="form"
       onSubmit={(e) => {
         e.preventDefault();
+        inputRef.current?.blur();
         router.push(`/search?q=${inputRef.current?.value}`);
       }}
       fullWidth
@@ -22,7 +23,10 @@ const SearchField = () => {
         inputRef={inputRef}
         fullWidth
         icon={<Search />}
-        onClickIcon={() => router.push(`/search?q=${inputRef.current?.value}`)}
+        onClickIcon={() => {
+          inputRef.current?.blur();
+          router.push(`/search?q=${inputRef.current?.value}`);
+        }}
         placeholder="Tìm kiếm"
         type="input"
       />
