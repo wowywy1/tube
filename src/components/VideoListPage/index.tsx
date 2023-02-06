@@ -1,3 +1,4 @@
+import Loading from "@/src/common-ui/Loading";
 import Pagination from "@/src/common-ui/Pagination";
 import Video from "@/src/models/video";
 import { Typography } from "@mui/material";
@@ -10,11 +11,13 @@ const VideoListPage = ({
   title,
   pageRoute,
   onPageChange,
+  loading,
 }: {
   videos: Video[];
   page: number;
   pageCount: number;
   title: string;
+  loading?: boolean;
   pageRoute?: string;
   onPageChange?: (page: number) => void;
 }) => {
@@ -29,7 +32,12 @@ const VideoListPage = ({
         pageRoute={pageRoute}
         onChange={(event, page) => onPageChange?.(page)}
       />
-      <VideoList videos={videos} />
+
+      {loading ? (
+        <Loading title="Đang tìm..." />
+      ) : (
+        <VideoList videos={videos} />
+      )}
       <Pagination
         count={pageCount}
         page={page}

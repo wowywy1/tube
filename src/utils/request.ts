@@ -5,7 +5,9 @@ const request = async (
   { body, params }: { body?: any; params?: any }
 ) => {
   const url =
-    (!endpoint.startsWith("https://") ? "https://" + endpoint : endpoint) +
+    (!endpoint.startsWith("https://") && !endpoint.startsWith("http://")
+      ? "https://" + endpoint
+      : endpoint) +
     "?" +
     new URLSearchParams(params).toString();
   console.log(url);
