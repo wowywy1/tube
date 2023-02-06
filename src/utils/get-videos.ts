@@ -8,7 +8,7 @@ const _getCompareNumber = (
   type: "moi-nhat" | "hay-nhat" | "pho-bien"
 ): number => {
   return type == "moi-nhat"
-    ? video.updated_at
+    ? -video.updated_at
     : type == "pho-bien"
     ? -(video.views || 0)
     : type == "hay-nhat"

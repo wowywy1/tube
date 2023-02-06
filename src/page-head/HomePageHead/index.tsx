@@ -22,6 +22,10 @@ const HomePageHead = () => {
     <>
       <CommonHead {...data} />
       <Head>
+        <meta
+          name="juicyads-site-verification"
+          content="8cbe247c56c09e3f9cc543745eaeefea"
+        ></meta>
         <script
           type="application/ld+json"
           id="organization-script"

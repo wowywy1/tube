@@ -15,11 +15,12 @@ const SearchField = () => {
         e.preventDefault();
         router.push(`/search?q=${inputRef.current?.value}`);
       }}
+      fullWidth
+      sx={{ flex: 1, width: "100%", ml: 2, minWidth: "260px" }}
     >
       <TextField
         inputRef={inputRef}
         fullWidth
-        sx={{ flex: 1, width: "100%", ml: 2, minWidth: "260px" }}
         icon={<Search />}
         onClickIcon={() => router.push(`/search?q=${inputRef.current?.value}`)}
         placeholder="Tìm kiếm"
