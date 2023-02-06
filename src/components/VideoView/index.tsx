@@ -1,10 +1,9 @@
 import FlexBox from "@/src/common-ui/FlexBox";
-import BRAND_DATA from "@/src/constants/brand";
 import Video from "@/src/models/video";
-import { Box, Button, CircularProgress, colors } from "@mui/material";
+import { Box, BoxProps, Button, CircularProgress, colors } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 
-const VideoView = ({ video }: { video: Video }) => {
+const VideoView = ({ video, ...BoxProps }: { video: Video } & BoxProps) => {
   const [currentLink, setCurrentLink] = useState(0);
   const [loading, setLoading] = useState(false);
 
@@ -18,15 +17,19 @@ const VideoView = ({ video }: { video: Video }) => {
   }, [video]);
 
   useEffect(() => {
+    setCurrentLink(0);
+  }, [video]);
+
+  useEffect(() => {
     setLoading(true);
   }, [video, currentLink]);
 
   return (
-    <Box>
+    <Box {...BoxProps}>
       <Box
         sx={{
           width: "100%",
-          aspectRatio: "16/9",
+          aspectRatio: { xs: "1/1", sm: "16/9" },
           mt: 2,
           maxWidth: "md",
         }}
