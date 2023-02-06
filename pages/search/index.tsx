@@ -51,12 +51,19 @@ export const getServerSideProps = async (
     videos: [],
     count: 0,
   };
-  if (context.query?.q) {
-    props = await request(`https://search.clipshow.fun`, {
-      params: context.query,
-    });
+  try {
+    console.log("Make request to https://search.clipshow.fun", context.query);
+    if (context.query?.q) {
+      props = await request(`https://search.clipshow.fun`, {
+        params: context.query,
+      });
+    }
+    console.log("done");
+    return { props };
+  } catch (error) {
+    console.log(error);
+    return { props };
   }
-  return { props };
 };
 
 export default SearchPage;

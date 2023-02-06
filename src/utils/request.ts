@@ -8,6 +8,7 @@ const request = async (
     (!endpoint.startsWith("https://") ? "https://" + endpoint : endpoint) +
     "?" +
     new URLSearchParams(params).toString();
+  console.log(url);
   const response = await axios(url, {
     method: "GET",
     headers: {
